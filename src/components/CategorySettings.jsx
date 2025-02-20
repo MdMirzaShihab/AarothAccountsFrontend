@@ -4,7 +4,7 @@ import { FaEdit, FaTrash } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ConfirmationModal from "../components/ConfirmationModal";
-import { API_BASE_URL } from "../secrets";
+import { BASE_URL } from "../secrets";
 
 const CategorySettings = () => {
   const [categories, setCategories] = useState([]);
@@ -16,7 +16,7 @@ const CategorySettings = () => {
   const [showModal, setShowModal] = useState(false);
   const [categoryToDelete, setCategoryToDelete] = useState(null);
 
-  const CATEGORY_API = `${API_BASE_URL}categories`;
+  const CATEGORY_API = `${BASE_URL}categories`;
 
   // Fetch categories
   useEffect(() => {
@@ -117,7 +117,7 @@ const CategorySettings = () => {
     {/* Form */}
     <form
       onSubmit={handleSaveCategory}
-      className="bg-purple-200 p-6 rounded-lg shadow-md">
+      className="bg-[#F5ECD9] p-6 rounded-lg shadow-md">
       <h2 className="text-xl font-semibold mb-4 text-center text-gray-700">
         {editingCategory ? "Edit Category" : "Create Category"}
       </h2>
@@ -164,7 +164,7 @@ const CategorySettings = () => {
             onChange={(e) => setCategoryName(e.target.value)}
             placeholder="Enter category name"
             required
-            className="mt-2 w-full p-2 border-2 border-purple-300 shadow-md rounded-lg focus:ring-2 focus:ring-blue-300"
+            className="mt-2 w-full p-2 border-2 border-[#E6D5B8] shadow-md rounded-lg focus:ring-2 focus:ring-blue-300"
           />
         </div>
 
@@ -189,25 +189,25 @@ const CategorySettings = () => {
           value={searchQuery}
           onChange={handleSearch}
           placeholder="Search categories..."
-          className="w-full p-2 border-2 shadow-md shadow-purple-300 border-purple-200 rounded-lg focus:ring-2 focus:ring-blue-300"
+          className="w-full p-2 border-2 shadow-md shadow-[#E6D5B8] border-[#F5ECD9] rounded-lg focus:ring-2 focus:ring-blue-300"
         />
       </div>
 
       {/* Table Wrapper */}
-      <div className="overflow-x-auto bg-purple-100 shadow-md">
+      <div className="overflow-x-auto bg-[#F5ECD9] shadow-md">
         {/* Wrapper for the header and body */}
         <div className="max-h-96 overflow-y-auto">
           {/* Header */}
           <table className="min-w-full text-left text-gray-700">
-            <thead className="bg-purple-200">
+            <thead className="bg-[#F5ECD9]">
               <tr>
-                <th className="px-4 py-2 sticky top-0 z-10 bg-purple-200">
+                <th className="px-4 py-2 sticky top-0 z-10 bg-[#F5ECD9]">
                   Name
                 </th>
-                <th className="px-4 py-2 sticky top-0 z-10 bg-purple-200">
+                <th className="px-4 py-2 sticky top-0 z-10 bg-[#F5ECD9]">
                   Type
                 </th>
-                <th className="px-4 py-2 text-center sticky top-0 z-10 bg-purple-200">
+                <th className="px-4 py-2 text-center sticky top-0 z-10 bg-[#F5ECD9]">
                   Actions
                 </th>
               </tr>

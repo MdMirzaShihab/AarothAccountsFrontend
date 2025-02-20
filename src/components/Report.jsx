@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Nav from "../components/Nav";
 import TransactionReportForm from "./TransactionReportForm";
 import ReportSummary from "./ReportSummary";
 import TransactionsTable from "./TransactionsTable";
 import { generatePDF } from "../utils/ReportGeneratorPDF";
 import LoadingAnimation from "./LoadingAnimation";
 import { useNavigate } from "react-router-dom";
-import { API_BASE_URL } from "../secrets";
+import { BASE_URL } from "../secrets";
 
 const Report = () => {
   const navigate = useNavigate();
@@ -32,10 +31,10 @@ const Report = () => {
   const [loadingTotalBalance, setLoadingTotalBalance] = useState(false);
   const [includeOpeningBalance, setIncludeOpeningBalance] = useState(false);
 
-  const REPORT_API = `${API_BASE_URL}reports`;
-  const TOTAL_BALANCE_API = `${API_BASE_URL}reports/total-balance`;
-  const CATEGORY_API = `${API_BASE_URL}categories`;
-  const PAYMENT_METHOD_API = `${API_BASE_URL}payment-methods`;
+  const REPORT_API = `${BASE_URL}reports`;
+  const TOTAL_BALANCE_API = `${BASE_URL}reports/total-balance`;
+  const CATEGORY_API = `${BASE_URL}categories`;
+  const PAYMENT_METHOD_API = `${BASE_URL}payment-methods`;
 
   useEffect(() => {
     // Fetch categories and payment methods on component mount
@@ -111,8 +110,8 @@ const Report = () => {
 
   return (
     <div className="pl-16 md:pl-0">
-      <div className="bg-purple-200 max-w-7xl mx-auto mt-8 p-4 rounded-lg shadow-lg">
-        <h1 className="text-3xl text-center text-purple-800 font-bold">
+      <div className="bg-[#F5ECD9] max-w-7xl mx-auto mt-8 p-4 rounded-lg shadow-lg">
+        <h1 className="text-3xl text-center text-[#8C644A] font-bold">
           Transaction Report
         </h1>
         <TransactionReportForm

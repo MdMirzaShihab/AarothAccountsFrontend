@@ -39,7 +39,7 @@ const TransactionForm = ({
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         {/* Account Type */}
         <div className="">
-          <label className="block mb-2 text-sm font-medium text-purple-900">
+          <label className="block mb-2 text-sm font-medium text-[#8C644A]">
             Account Type
           </label>
           <Select
@@ -66,7 +66,7 @@ const TransactionForm = ({
         </div>
         {/* Account Head */}
         <div className="">
-          <label className="block mb-2 text-sm font-medium text-purple-900">
+          <label className="block mb-2 text-sm font-medium text-[#8C644A]">
             Account Head
           </label>
           <Select
@@ -97,7 +97,7 @@ const TransactionForm = ({
 
         {/* Payment Method */}
         <div className="">
-          <label className="block mb-2 text-sm font-medium text-purple-900">
+          <label className="block mb-2 text-sm font-medium text-[#8C644A]">
             Payment Method
           </label>
           <Select
@@ -127,14 +127,14 @@ const TransactionForm = ({
 
         {/* Date */}
         <div className="">
-          <label className="block mb-2 text-sm font-medium text-purple-900">
+          <label className="block mb-2 text-sm font-medium text-[#8C644A]">
             Date
           </label>
           <DatePicker
             selected={formData.date ? new Date(formData.date) : null} // Use formData.date if it's available
             onChange={handleDateChange} // Update state when the date is changed
             dateFormat="dd/MM/yy" // Display format for users
-            className="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg block w-full p-2 focus:ring-purple-500 focus:border-purple-500"
+            className="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg block w-full p-2 focus:ring-[#D4A373] focus:border-[#D4A373]"
             wrapperClassName="w-full" 
             required
           />
@@ -143,12 +143,12 @@ const TransactionForm = ({
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-2">
         {/* Amount */}
         <div className="">
-          <label className="block mb-2 text-sm font-medium text-purple-900">
+          <label className="block mb-2 text-sm font-medium text-[#8C644A]">
             Amount
           </label>
           <input
             type="number"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-5 focus:ring-purple-500 focus:border-purple-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-5 focus:ring-[#D4A373] focus:border-[#D4A373]"
             placeholder="Amount"
             name="amount"
             value={formData.amount || ""}
@@ -159,7 +159,7 @@ const TransactionForm = ({
 
         {/* Remarks */}
         <div className="col-span-2">
-          <label className="block mb-2 text-sm font-medium text-purple-900">
+          <label className="block mb-2 text-sm font-medium text-[#8C644A]">
             Remarks
           </label>
           <textarea
@@ -167,7 +167,7 @@ const TransactionForm = ({
             value={formData.remarks || ""}
             onChange={handleInputChange}
             rows="2"
-            className="block p-2.5 w-full text-sm bg-gray-50 rounded-lg border border-gray-300 focus:ring-purple-500 focus:border-purple-500"
+            className="block p-2.5 w-full text-sm bg-gray-50 rounded-lg border border-gray-300 focus:ring-[#D4A373] focus:border-[#D4A373]"
             placeholder="Write your thoughts here..."></textarea>
         </div>
       </div>
@@ -175,7 +175,7 @@ const TransactionForm = ({
       <div className="col-span-1 md:col-span-1 flex justify-center items-center pt-5">
         <button
           type="submit"
-          className="bg-purple-600 hover:bg-purple-700 text-white text-sm rounded-lg block w-full p-2.5 hover:shadow-purple-500 font-medium shadow-md transition-all duration-300">
+          className="bg-[#8C644A] hover:bg-[#D4A373] text-white text-sm rounded-lg block w-full p-2.5 hover:shadow-[#D4A373] font-medium shadow-md transition-all duration-300">
           Save Transaction
         </button>
       </div>

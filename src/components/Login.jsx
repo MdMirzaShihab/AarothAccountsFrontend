@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Logo from "../assets/mpi.png";
+import Logo from "../assets/LogoAaroth.png";
 import Clock from "./Clock";
 
 const Login = () => {
@@ -10,8 +10,8 @@ const Login = () => {
   const navigate = useNavigate();
 
   // Hardcoded credentials
-  const validUsername = "admin";
-  const validPassword = "admin123";
+  const validUsername = "aaroth";
+  const validPassword = "aaroth123";
 
   // Check if the user is already logged in
   useEffect(() => {
@@ -38,7 +38,7 @@ const Login = () => {
       <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-sm transition-transform duration-300 transform hover:scale-105">
         <div className="flex flex-col items-center mb-6">
           <img src={Logo} alt="Logo" className="w-24 h-24 mb-4" />
-          <h1 className="text-2xl font-semibold text-purple-900">
+          <h1 className="text-2xl font-semibold text-[#8C644A]">
             Welcome Back!
           </h1>
           <p className="text-gray-600">Please log in to your account</p>
@@ -56,7 +56,7 @@ const Login = () => {
               id="username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4A373]"
               placeholder="Enter your username"
             />
           </div>
@@ -71,14 +71,14 @@ const Login = () => {
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4A373]"
               placeholder="Enter your password"
             />
           </div>
           {error && <p className="text-red-600 text-sm mb-4">{error}</p>}
           <button
             type="submit"
-            className="w-full bg-purple-900 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition duration-300">
+            className="w-full bg-[#8C644A] text-white py-2 px-4 rounded-lg hover:bg-[#D4A373] transition duration-300">
             Login
           </button>
         </form>
@@ -86,14 +86,14 @@ const Login = () => {
         <div className="mt-6 text-center">
           <a
             href="#"
-            className="text-purple-900 hover:underline"
+            className="text-[#8C644A] hover:underline"
             onClick={(e) => e.preventDefault()}>
             Forgot Password?
           </a>
           <br />
           <a
             href="#"
-            className="text-purple-900 hover:underline"
+            className="text-[#8C644A] hover:underline"
             onClick={(e) => e.preventDefault()}>
             Sign Up
           </a>

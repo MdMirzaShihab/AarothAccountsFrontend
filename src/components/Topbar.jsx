@@ -10,7 +10,7 @@ const Topbar = () => {
         navigate("/");
       };
   return (
-    <div className="fixed top-0 left-0 w-full h-16 z-50 bg-purple-900 p-4 flex justify-between items-center shadow-xl">
+    <div className="fixed top-0 left-0 w-full h-16 z-50 bg-[#8C644A] p-4 flex justify-between items-center shadow-xl">
 
         <DateComponent />
         <Clock />

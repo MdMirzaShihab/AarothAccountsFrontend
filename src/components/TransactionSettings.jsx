@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import ConfirmationModal from "../components/ConfirmationModal";
 import TransactionForm from "./TransactionForm";
 import TransactionReportForm from "./TransactionReportForm";
-import { API_BASE_URL } from "../secrets";
+import { BASE_URL } from "../secrets";
 import LoadingAnimation from "./LoadingAnimation";
 
 const TransactionSettings = () => {
@@ -37,9 +37,9 @@ const TransactionSettings = () => {
     date: "",
   });
 
-  const REPORT_API = `${API_BASE_URL}reports`;
-  const CATEGORY_API = `${API_BASE_URL}categories`;
-  const PAYMENT_METHOD_API = `${API_BASE_URL}payment-methods`;
+  const REPORT_API = `${BASE_URL}reports`;
+  const CATEGORY_API = `${BASE_URL}categories`;
+  const PAYMENT_METHOD_API = `${BASE_URL}payment-methods`;
 
   const fetchReport = async () => {
     setLoading(true);
@@ -110,7 +110,7 @@ const TransactionSettings = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = `${API_BASE_URL}transactions/${editId}`;
+      const url = `${BASE_URL}transactions/${editId}`;
       await axios.put(url, formData);
       toast.success("Transaction updated successfully!");
       fetchReport();
@@ -124,7 +124,7 @@ const TransactionSettings = () => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`${API_BASE_URL}transactions/${deleteTransactionId}`);
+      await axios.delete(`${BASE_URL}transactions/${deleteTransactionId}`);
       toast.success("Transaction deleted successfully.");
       fetchReport();
     } catch (error) {
@@ -173,7 +173,7 @@ const TransactionSettings = () => {
           </div>
         )}
 
-        <div className="relative bg-purple-200 rounded-lg shadow-lg z-20">
+        <div className="relative bg-[#F5ECD9] rounded-lg shadow-lg z-20">
           <TransactionReportForm
             filters={filters}
             setFilters={setFilters}
@@ -188,16 +188,16 @@ const TransactionSettings = () => {
       </div>
       <div className="mt-6 max-w-7xl mx-auto rounded-xl shadow-md">
   <div className="overflow-auto h-96">
-    <table className="w-full min-w-max text-left text-gray-700 bg-purple-100">
+    <table className="w-full min-w-max text-left text-gray-700 bg-[#F5ECD9]">
       <thead>
         <tr>
-          <th className="px-4 py-2 sticky top-0 z-10 bg-purple-200">Type</th>
-          <th className="px-4 py-2 sticky top-0 z-10 bg-purple-200">Category</th>
-          <th className="px-4 py-2 sticky top-0 z-10 bg-purple-200">Amount</th>
-          <th className="px-4 py-2 sticky top-0 z-10 bg-purple-200">Payment Method</th>
-          <th className="px-4 py-2 sticky top-0 z-10 bg-purple-200">Date</th>
-          <th className="px-4 py-2 sticky top-0 z-10 bg-purple-200">Remarks</th>
-          <th className="px-4 py-2 text-center sticky top-0 z-10 bg-purple-200">Actions</th>
+          <th className="px-4 py-2 sticky top-0 z-10 bg-[#F5ECD9]">Type</th>
+          <th className="px-4 py-2 sticky top-0 z-10 bg-[#F5ECD9]">Category</th>
+          <th className="px-4 py-2 sticky top-0 z-10 bg-[#F5ECD9]">Amount</th>
+          <th className="px-4 py-2 sticky top-0 z-10 bg-[#F5ECD9]">Payment Method</th>
+          <th className="px-4 py-2 sticky top-0 z-10 bg-[#F5ECD9]">Date</th>
+          <th className="px-4 py-2 sticky top-0 z-10 bg-[#F5ECD9]">Remarks</th>
+          <th className="px-4 py-2 text-center sticky top-0 z-10 bg-[#F5ECD9]">Actions</th>
         </tr>
       </thead>
       <tbody>

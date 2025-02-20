@@ -1,5 +1,5 @@
 import jsPDF from "jspdf";
-import mpi from "../assets/mpi.png";
+import mpi from "../assets/LogoAaroth.png";
 
 export const generatePDF = (
   transactions,

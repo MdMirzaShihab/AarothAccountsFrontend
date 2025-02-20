@@ -24,8 +24,8 @@ const Settings = () => {
           <button
             className={`px-4 py-2 md:rounded-s-lg ${
               activeTab === "category"
-                ? "bg-purple-900 text-white font-bold"
-                : "bg-purple-200 text-gray-800 border-2 border-purple-900"
+                ? "bg-[#8C644A] text-white font-bold"
+                : "bg-[#F5ECD9] text-gray-800 border-2 border-[#8C644A]"
             }`}
             onClick={() => setActiveTab("category")}>
             Categories
@@ -33,8 +33,8 @@ const Settings = () => {
           <button
             className={`px-4 py-2 ${
               activeTab === "payment"
-                ? "bg-purple-900 text-white font-bold"
-                : "bg-purple-200 text-gray-800 border-x-2 md:border-y-2 border-purple-900"
+                ? "bg-[#8C644A] text-white font-bold"
+                : "bg-[#F5ECD9] text-gray-800 border-x-2 md:border-y-2 border-[#8C644A]"
             }`}
             onClick={() => setActiveTab("payment")}>
             Payment Options
@@ -42,8 +42,8 @@ const Settings = () => {
           <button
             className={`px-4 py-2 md:rounded-e-lg ${
               activeTab === "transaction"
-                ? "bg-purple-900 text-white font-bold"
-                : "bg-purple-200 text-gray-800 border-2 border-purple-900"
+                ? "bg-[#8C644A] text-white font-bold"
+                : "bg-[#F5ECD9] text-gray-800 border-2 border-[#8C644A]"
             }`}
             onClick={() => setActiveTab("transaction")}>
             Transactions

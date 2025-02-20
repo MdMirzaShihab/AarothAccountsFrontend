@@ -65,33 +65,33 @@ const TransactionReportForm = ({
     <div className="px-6 pt-6 ">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div>
-          <label className="block mb-2 text-sm font-medium text-purple-900">
+          <label className="block mb-2 text-sm font-medium text-[#8C644A]">
             From
           </label>
           <DatePicker
             selected={filters.startDate ? new Date(filters.startDate) : null}
             onChange={(date) => handleDateChange("startDate", date)}
             dateFormat="dd/MM/yy"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded block w-full p-2 focus:ring-purple-500 focus:border-purple-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded block w-full p-2 focus:ring-[#D4A373] focus:border-[#D4A373]"
             wrapperClassName="w-full" 
             required
           />
         </div>
         <div>
-          <label className="block mb-2 text-sm font-medium text-purple-900">
+          <label className="block mb-2 text-sm font-medium text-[#8C644A]">
             To
           </label>
           <DatePicker
             selected={filters.endDate ? new Date(filters.endDate) : null}
             onChange={(date) => handleDateChange("endDate", date)}
             dateFormat="dd/MM/yy"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded block w-full p-2 focus:ring-purple-500 focus:border-purple-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded block w-full p-2 focus:ring-[#D4A373] focus:border-[#D4A373]"
             wrapperClassName="w-full" 
             required
           />
         </div>
         <div>
-          <label className="block mb-2 text-sm font-medium text-purple-900">
+          <label className="block mb-2 text-sm font-medium text-[#8C644A]">
             Type
           </label>
           <Select
@@ -104,7 +104,7 @@ const TransactionReportForm = ({
           />
         </div>
         <div>
-          <label className="block mb-2 text-sm font-medium text-purple-900">
+          <label className="block mb-2 text-sm font-medium text-[#8C644A]">
             Payment Method
           </label>
           <Select
@@ -118,7 +118,7 @@ const TransactionReportForm = ({
           />
         </div>
         <div>
-          <label className="block mb-2 text-sm font-medium text-purple-900">
+          <label className="block mb-2 text-sm font-medium text-[#8C644A]">
             Account Head
           </label>
           <Select
@@ -132,7 +132,7 @@ const TransactionReportForm = ({
           />
         </div>
         <div>
-          <label className="block mb-2 text-sm font-medium text-purple-900">
+          <label className="block mb-2 text-sm font-medium text-[#8C644A]">
             Search Remarks
           </label>
           <input
@@ -141,13 +141,13 @@ const TransactionReportForm = ({
             value={filters.search}
             onChange={handleInputChange}
             placeholder="Enter remarks"
-            className="w-full p-1.5 border-gray-300 rounded shadow-sm focus:ring-purple-500 focus:border-purple-500"
+            className="w-full p-1.5 border-gray-300 rounded shadow-sm focus:ring-[#D4A373] focus:border-[#D4A373]"
           />
         </div>
       </div>
       <button
         onClick={fetchReport}
-        className="w-full mt-6 mb-4 bg-purple-600 text-white py-2 px-4 rounded shadow-md hover:bg-purple-700 hover:shadow-purple-500 transition-all duration-300">
+        className="w-full mt-6 mb-4 bg-[#8C644A] text-white py-2 px-4 rounded shadow-md hover:bg-[#D4A373] hover:shadow-[#D4A373] transition-all duration-300">
         {loading ? "Loading..." : `${buttonText}`}
       </button>
     </div>
