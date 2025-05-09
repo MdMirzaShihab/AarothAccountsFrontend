@@ -77,49 +77,54 @@ const Dashboard = () => {
   );
 
   return (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-[#8C644A]">Monthly Dashboard</h2>
+    <div className="pl-16 md:pl-0 -ml-16 md:-ml-0">
+     <h2 className="text-2xl md:text-3xl font-bold text-center text-[#8C644A] my-4">Monthly Dashboard</h2>
       
       {isLoading ? (
         <LoadingAnimation message="Loading dashboard data..." />
       ) : analytics ? (
-        <>
+        <div className="max-w-7xl mx-auto">
           {/* KPI Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {renderKPICard(
-              "Total Credits", 
-              analytics.totalCredits, 
-              true, 
-              <AiOutlineArrowUp />
-            )}
-            {renderKPICard(
-              "Total Debits", 
-              analytics.totalDebits, 
-              false, 
-              <AiOutlineArrowDown />
-            )}
-            {renderKPICard(
-              "Net Balance", 
-              analytics.totalCredits - analytics.totalDebits, 
-              (analytics.totalCredits - analytics.totalDebits) >= 0, 
-              <AiOutlineTransaction />
-            )}
-            <div className="bg-white rounded-xl shadow-sm p-4 flex flex-col">
-              <div className="flex justify-between items-start">
-                <h3 className="text-sm font-medium text-gray-500">Transactions</h3>
-                <span className="p-2 rounded-lg bg-blue-100 text-blue-600">
-                  <AiOutlineNumber />
-                </span>
+              <div className="bg-green-100 shadow rounded p-4 flex flex-col items-center">
+                <h2 className="text-md font-semibold text-gray-700">
+                  Total Credits
+                </h2>
+                <p className="text-xl md:text-2xl font-bold text-green-600">
+                  ৳ {analytics.totalCredits.toLocaleString()}
+                </p>
+                <AiOutlineArrowUp className="text-green-600 text-lg md:text-xl" />
               </div>
-              <p className="text-2xl font-bold mt-2">
-                {analytics.totalTransactions}
-              </p>
-              <div className="flex items-center mt-2 text-sm text-gray-500">
-                <span>This month</span>
+              <div className="bg-red-100 shadow rounded p-4 flex flex-col items-center">
+                <h2 className="text-md font-semibold text-gray-700">
+                  Total Debits
+                </h2>
+                <p className="text-xl md:text-2xl font-bold text-red-600">
+                  ৳ {analytics.totalDebits.toLocaleString()}
+                </p>
+                <AiOutlineArrowDown className="text-red-600 text-lg md:text-xl" />
+              </div>
+              <div className="bg-yellow-100 shadow rounded p-4 flex flex-col items-center">
+                <h2 className="text-md font-semibold text-gray-700">
+                  Total Balance
+                </h2>
+                <p className="text-xl md:text-2xl font-bold text-yellow-600">
+                  {(
+                    analytics.totalCredits - analytics.totalDebits
+                  ).toLocaleString()}
+                </p>
+                <AiOutlineTransaction className="text-yellow-600 text-lg md:text-xl" />
+              </div>
+              <div className="bg-orange-100 shadow rounded p-4 flex flex-col items-center">
+                <h2 className="text-md font-semibold text-gray-700">
+                  Total Transactions
+                </h2>
+                <p className="text-xl md:text-2xl font-bold text-orange-600">
+                  {analytics.totalTransactions}
+                </p>
+                <AiOutlineNumber className="text-orange-600 text-lg md:text-xl" />
               </div>
             </div>
-          </div>
-
           {/* Charts Section */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Debit Pie Chart */}
@@ -227,7 +232,7 @@ const Dashboard = () => {
               />
             </div>
           </div>
-        </>
+          </div>
       ) : (
         <div className="bg-white p-6 rounded-lg shadow-sm text-center">
           <p className="text-red-500">Failed to load dashboard data. Please try again.</p>
