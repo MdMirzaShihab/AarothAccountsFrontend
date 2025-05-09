@@ -27,9 +27,9 @@ export const generatePDF = (
   startY += logoHeight + 10;
 
   // Company Info
-  const companyName = "MIRPUR POLYTECHNIC INSTITUTE";
-  const companyAddress = "Mukto Bangla Shopping Complex, Mirpur-1, Dhaka-1216";
-  const documentHeader = "Consolidated Statement of Credit-Debit (Academic)";
+  const companyName = "Aaroth";
+  const companyAddress = "12/3 Hossain Uddin Khan Lane, Nawabganj Road, Dhaka-1211";
+  const documentHeader = "Consolidated Statement of Credit-Debit";
 
   doc.setFont("helvetica", "bold").setFontSize(20);
   doc.text(
@@ -130,7 +130,7 @@ export const generatePDF = (
         pageNumber++;
 
         // **Brand Name on Each Page**
-        const brandName = "Nexx-Vantage";
+        const brandName = "Aaroth.com";
         const brandFontSize = 8;
         const footerY = pageHeight - 10;
         doc.setFont("helvetica", "normal").setFontSize(brandFontSize);

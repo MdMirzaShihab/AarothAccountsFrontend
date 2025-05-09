@@ -7,9 +7,7 @@ import TodayDebit from "./TodayDebit";
 import TodayCredit from "./TodayCredit";
 import ConfirmationModal from "../components/ConfirmationModal";
 import { useNavigate } from "react-router-dom";
-import Clock from "./Clock";
 import { BASE_URL } from "../secrets";
-import DateComponent from "./DateComponent";
 
 const Transaction = () => {
   const navigate = useNavigate();

@@ -42,7 +42,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
         </Link>
       </nav>
 
-      {isOpen && <div className="text-center text-sm text-gray-300">NexxVantage &copy; 2025</div>}
+      {isOpen && <div className="text-center text-sm text-gray-300">Aaroth &copy; 2025</div>}
     </div>
   );
 };
