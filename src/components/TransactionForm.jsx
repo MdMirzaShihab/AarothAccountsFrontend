@@ -17,6 +17,7 @@ const TransactionForm = ({
     { value: "debit", label: "Debit" },
   ];
 
+  // This will now only show categories of the selected type
   const categoryOptions = categories.map((cat) => ({
     value: cat._id,
     label: cat.name,

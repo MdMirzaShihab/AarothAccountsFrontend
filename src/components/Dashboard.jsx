@@ -129,7 +129,7 @@ const Dashboard = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Debit Pie Chart */}
             <div className="bg-white p-4 rounded-xl shadow-sm">
-              <h3 className="font-medium text-[#8C644A] mb-4">Debit by Category</h3>
+              <h3 className="font-medium text-[#8C644A] mb-4">Debit by Account Head</h3>
               <div className="h-64">
                 <Pie
                   data={{
@@ -162,7 +162,7 @@ const Dashboard = () => {
 
             {/* Credit Pie Chart */}
             <div className="bg-white p-4 rounded-xl shadow-sm">
-              <h3 className="font-medium text-[#8C644A] mb-4">Credit by Category</h3>
+              <h3 className="font-medium text-[#8C644A] mb-4">Credit by Account Head</h3>
               <div className="h-64">
                 <Pie
                   data={{

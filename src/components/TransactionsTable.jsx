@@ -42,7 +42,7 @@ const TransactionsTable = ({
                 Type
               </th>
               <th className="px-4 py-2 sticky top-0 z-10 bg-[#F5ECD9] uppercase">
-                Category
+                Account Head
               </th>
               <th className="px-4 py-2 sticky top-0 z-10 bg-[#F5ECD9] uppercase">
                 Payment Method

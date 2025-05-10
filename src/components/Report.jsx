@@ -30,6 +30,8 @@ const Report = () => {
     useState(0);
   const [loadingTotalBalance, setLoadingTotalBalance] = useState(false);
   const [includeOpeningBalance, setIncludeOpeningBalance] = useState(false);
+  const [loadingCategories, setLoadingCategories] = useState(false);
+
 
   const REPORT_API = `${BASE_URL}reports`;
   const TOTAL_BALANCE_API = `${BASE_URL}reports/total-balance`;
@@ -37,20 +39,41 @@ const Report = () => {
   const PAYMENT_METHOD_API = `${BASE_URL}payment-methods`;
 
   useEffect(() => {
-    // Fetch categories and payment methods on component mount
-    const fetchData = async () => {
+    const fetchPaymentMethods = async () => {
       try {
-        const categoryResponse = await axios.get(CATEGORY_API);
         const paymentMethodResponse = await axios.get(PAYMENT_METHOD_API);
-        setCategories(categoryResponse.data);
         setPaymentMethods(paymentMethodResponse.data);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error("Error fetching payment methods:", error);
       }
     };
 
-    fetchData();
+    fetchPaymentMethods();
   }, []);
+
+  useEffect(() => {
+    const fetchCategoriesByType = async () => {
+      if (filters.type) {
+        try {
+          setLoadingCategories(true);
+          const categoryResponse = await axios.get(
+            `${BASE_URL}categories/type/${filters.type}`
+          );
+          setCategories(categoryResponse.data);
+          setFilters(prev => ({ ...prev, category: "" }));
+        } catch (error) {
+          console.error("Error fetching categories:", error);
+        } finally {
+          setLoadingCategories(false);
+        }
+      } else {
+        setCategories([]);
+        setFilters(prev => ({ ...prev, category: "" }));
+      }
+    };
+
+    fetchCategoriesByType();
+  }, [filters.type]);
 
   const fetchReport = async () => {
     setLoading(true);
@@ -123,6 +146,7 @@ const Report = () => {
           loading={loading}
           buttonText="Generate Report"
           error={error}
+          loadingCategories={loadingCategories}
         />
       </div>
       <ReportSummary

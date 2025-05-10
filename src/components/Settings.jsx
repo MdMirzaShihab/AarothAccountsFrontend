@@ -28,7 +28,7 @@ const Settings = () => {
                 : "bg-[#F5ECD9] text-gray-800 border-2 border-[#8C644A]"
             }`}
             onClick={() => setActiveTab("category")}>
-            Categories
+            Account Head
           </button>
           <button
             className={`px-4 py-2 ${

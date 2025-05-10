@@ -119,7 +119,7 @@ const CategorySettings = () => {
       onSubmit={handleSaveCategory}
       className="bg-[#F5ECD9] p-6 rounded-lg shadow-md">
       <h2 className="text-xl font-semibold mb-4 text-center text-gray-700">
-        {editingCategory ? "Edit Category" : "Create Category"}
+        {editingCategory ? "Edit Account Head" : "Create Account Head"}
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {/* Type Selection */}
@@ -156,13 +156,13 @@ const CategorySettings = () => {
         {/* Name Input */}
         <div>
           <label className="block text-sm font-medium text-gray-600">
-            Category Name
+            Account Head Name
           </label>
           <input
             type="text"
             value={categoryName}
             onChange={(e) => setCategoryName(e.target.value)}
-            placeholder="Enter category name"
+            placeholder="Enter Account Head name"
             required
             className="mt-2 w-full p-2 border-2 border-[#E6D5B8] shadow-md rounded-lg focus:ring-2 focus:ring-blue-300"
           />
@@ -181,14 +181,14 @@ const CategorySettings = () => {
 
     {/* Category List */}
     <div className="mt-6">
-      <h2 className="text-xl font-semibold mb-4 text-gray-700">Categories</h2>
+      <h2 className="text-xl font-semibold mb-4 text-gray-700">Account Heads</h2>
       {/* Search Input */}
       <div className="mb-6">
         <input
           type="text"
           value={searchQuery}
           onChange={handleSearch}
-          placeholder="Search categories..."
+          placeholder="Search Account Heads..."
           className="w-full p-2 border-2 shadow-md shadow-[#E6D5B8] border-[#F5ECD9] rounded-lg focus:ring-2 focus:ring-blue-300"
         />
       </div>
@@ -237,7 +237,7 @@ const CategorySettings = () => {
         </div>
         {filteredCategories.length === 0 && (
           <div className="text-center py-4 text-gray-500">
-            No categories found.
+            No Account Heads found.
           </div>
         )}
       </div>
@@ -249,7 +249,7 @@ const CategorySettings = () => {
         onCancel={() => setShowModal(false)}
         onConfirm={handleDeleteCategory}
         title="Confirm Deletion"
-        message={`Are you sure you want to delete the category "${categoryToDelete?.name}"? This action cannot be undone.`}
+        message={`Are you sure you want to delete the Account Head "${categoryToDelete?.name}"? This action cannot be undone.`}
       />
     )}
   </div>

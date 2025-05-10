@@ -64,22 +64,59 @@ const TransactionSettings = () => {
   };
 
   useEffect(() => {
-    const fetchInitialData = async () => {
+    const fetchPaymentMethods = async () => {
       try {
-        const [categoryResponse, paymentMethodResponse] = await Promise.all([
-          axios.get(CATEGORY_API),
-          axios.get(PAYMENT_METHOD_API),
-        ]);
-        setCategories(categoryResponse.data);
+        const paymentMethodResponse = await axios.get(PAYMENT_METHOD_API);
         setPaymentMethods(paymentMethodResponse.data);
       } catch (error) {
-        toast.error("Failed to fetch data.");
+        toast.error("Failed to fetch payment methods.");
       }
     };
 
-    fetchInitialData();
+    fetchPaymentMethods();
     fetchReport();
   }, []);
+
+  useEffect(() => {
+    const fetchCategoriesByType = async () => {
+      if (filters.type) {
+        try {
+          const categoryResponse = await axios.get(
+            `${BASE_URL}categories/type/${filters.type}`
+          );
+          setCategories(categoryResponse.data);
+          // Reset category filter when type changes
+          setFilters(prev => ({ ...prev, category: "" }));
+        } catch (error) {
+          toast.error("Failed to fetch categories.");
+        }
+      } else {
+        setCategories([]);
+        setFilters(prev => ({ ...prev, category: "" }));
+      }
+    };
+
+    fetchCategoriesByType();
+  }, [filters.type]);
+
+  useEffect(() => {
+    const fetchCategoriesForEdit = async () => {
+      if (formData.type) {
+        try {
+          const categoryResponse = await axios.get(
+            `${BASE_URL}categories/type/${formData.type}`
+          );
+          setCategories(categoryResponse.data);
+        } catch (error) {
+          toast.error("Failed to fetch categories.");
+        }
+      } else {
+        setCategories([]);
+      }
+    };
+
+    fetchCategoriesForEdit();
+  }, [formData.type]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -90,6 +127,7 @@ const TransactionSettings = () => {
     setFormData((prev) => ({
       ...prev,
       [fieldName]: selectedOption ? selectedOption.value : "",
+      ...(fieldName === "type" && { category: "" }),
     }));
   };
 
@@ -192,7 +230,7 @@ const TransactionSettings = () => {
       <thead>
         <tr>
           <th className="px-4 py-2 sticky top-0 z-10 bg-[#F5ECD9]">Type</th>
-          <th className="px-4 py-2 sticky top-0 z-10 bg-[#F5ECD9]">Category</th>
+          <th className="px-4 py-2 sticky top-0 z-10 bg-[#F5ECD9]">Account Head</th>
           <th className="px-4 py-2 sticky top-0 z-10 bg-[#F5ECD9]">Amount</th>
           <th className="px-4 py-2 sticky top-0 z-10 bg-[#F5ECD9]">Payment Method</th>
           <th className="px-4 py-2 sticky top-0 z-10 bg-[#F5ECD9]">Date</th>

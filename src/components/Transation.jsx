@@ -37,13 +37,9 @@ const Transaction = () => {
   });
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchPaymentMethods = async () => {
       try {
-        const categoryResponse = await axios.get(`${BASE_URL}categories`);
-        const paymentMethodResponse = await axios.get(
-          `${BASE_URL}payment-methods`
-        );
-        setCategories(categoryResponse.data);
+        const paymentMethodResponse = await axios.get(`${BASE_URL}payment-methods`);
         setPaymentMethods(paymentMethodResponse.data);
 
         const cashPaymentMethod = paymentMethodResponse.data.find(
@@ -56,11 +52,27 @@ const Transaction = () => {
           }));
         }
       } catch (error) {
-        toast.error("Error fetching categories or payment methods.");
+        toast.error("Error fetching payment methods.");
       }
     };
 
-    fetchData();
+    const fetchCategoriesByType = async () => {
+      if (formData.type) {
+        try {
+          const categoryResponse = await axios.get(
+            `${BASE_URL}categories/type/${formData.type}`
+          );
+          setCategories(categoryResponse.data);
+        } catch (error) {
+          toast.error("Error fetching categories.");
+        }
+      } else {
+        setCategories([]);
+      }
+    };
+
+    fetchPaymentMethods();
+    fetchCategoriesByType();
   }, [formData.type]);
 
   const fetchData = async (url, setter, totalSetter, totalKey) => {
@@ -137,6 +149,7 @@ const Transaction = () => {
     setFormData({
       ...formData,
       [name]: selectedOption ? selectedOption.value : "",
+      ...(name === "type" && { category: "" }),
     });
   };
 

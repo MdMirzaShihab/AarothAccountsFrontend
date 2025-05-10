@@ -11,7 +11,8 @@ const TransactionReportForm = ({
   fetchReport,
   loading,
   error,
-  buttonText
+  buttonText,
+  loadingCategories
 }) => {
   useEffect(() => {
     // Set the default date range to one month
@@ -35,6 +36,7 @@ const TransactionReportForm = ({
     setFilters((prev) => ({
       ...prev,
       [name]: selectedOption ? selectedOption.value : "",
+      ...(name === "type" && { category: "" }),
     }));
   };
 
@@ -127,8 +129,17 @@ const TransactionReportForm = ({
               (opt) => opt.value === filters.category
             )}
             onChange={(opt) => handleSelectChange("category", opt)}
-            placeholder="Select Category"
+            placeholder="Select Account Head"
             isClearable
+            isDisabled={!filters.type} // Disable if no type selected
+            isLoading={loadingCategories}
+  noOptionsMessage={() => 
+    filters.type 
+      ? loadingCategories 
+        ? "Loading..." 
+        : "No categories found" 
+      : "Please select a type first"
+  }
           />
         </div>
         <div>
